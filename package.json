@@ -1,0 +1,35 @@
+{
+  "name": "pokefinder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node index.js --exec",
+    "dev": "set NODE_ENV=development&& nodemon index.js --exec babel-node",
+    "prod": "set NODE_ENV=production&& nodemon index.js --exec babel-node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomasMelendez6/pokeFinder-back.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.14.2",
+    "@babel/node": "^7.14.2",
+    "@babel/preset-env": "^7.14.2",
+    "axios": "^0.22.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "connect-history-api-fallback": "^1.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-promise-router": "^4.0.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.7",
+    "request": "^2.88.2",
+    "request-promise-native": "^1.0.8",
+    "underscore": "^1.13.1"
+  }
+}
