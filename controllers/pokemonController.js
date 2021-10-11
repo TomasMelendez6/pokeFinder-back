@@ -5,7 +5,7 @@ import axios from 'axios'
 export default {
     consultar: async (req, res) => {
         try{
-            const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=48');
+            const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=60');
 
             if (response.statusCode !== undefined && response.statusCode !== 200) {
                 throw response;
@@ -21,8 +21,18 @@ export default {
                         }
                         else{
                             let pokemonDetail = responseDetail.data
-                            let sprites = pokemonDetail.sprites
-                            let pokemon = new model.Pokemon(pokemonDetail.id, pokemonDetail.name, pokemonDetail.height, pokemonDetail.weight, sprites.front_default, sprites.back_default)
+                            let sprites = {
+                                front_def: pokemonDetail.sprites.front_default,
+                                back_def: pokemonDetail.sprites.back_default,
+                                front_shiny: pokemonDetail.sprites.front_shiny,
+                                back_shiny: pokemonDetail.sprites.back_shiny
+                            }
+
+                            let types = []
+                            pokemonDetail.types.forEach(element => {
+                                types.push(element.type.name)
+                            });
+                            let pokemon = new model.Pokemon(pokemonDetail.id, pokemonDetail.name, pokemonDetail.height, pokemonDetail.weight, sprites, types)
                             result.push(pokemon.jsonConverter())
                         }
                     };

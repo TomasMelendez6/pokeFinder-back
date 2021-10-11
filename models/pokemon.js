@@ -1,11 +1,11 @@
 class Pokemon {
-    constructor(id, name, height, weight, pic1, pic2){
+    constructor(id, name, height, weight, sprites, types){
         this.id = id;
         this.name = name;
         this.height = height;
         this.weight = weight;
-        this.pic1 = pic1;
-        this.pic2 = pic2;
+        this.sprites = sprites;
+        this.types = types;
     }
 
     jsonConverter(){
@@ -14,8 +14,8 @@ class Pokemon {
             name: this.name,
             height: this.height,
             weight: this.weight,
-            pic1: this.pic1,
-            pic2: this.pic2
+            sprites: this.sprites,
+            types: this.types
         }
         return json
     }
